@@ -19,9 +19,7 @@ let wordGame = {
 
     //seperates selected word into array of its letters 
     
-    randWordArray: function() {
-        return this.randWord.split("");
-    }
+    
 
     //count the number of letters 
     //display blank spaces equal to number of letters
@@ -41,3 +39,4 @@ let wordGame = {
 // var randWordArray = wordGame.randWord.split(" ");
 
 
+let secretWord = console.log(wordGame.randWord());
