@@ -1,64 +1,24 @@
 // needs to register key press to initiate program
 
-//initial variables
-
-let spaceWords = ["moon","star","event horizon","graviton","black hole", "coronal mass ejection", "olympus mons", "nasa","spirit", "opportunity","edwin hubble","alpha centauri","neutron star","singularity","jpl","oumuamua","apollo","buzz aldrin","project starshot","space x","esa","yutu","seti","neil armstrong","challenger","oort cloud","large magellanic cloud","hubble deep field","mars","venus","jupiter","uranus","neptune","mercury","kuiper belt","neo","meteor","comet","kepler space telescope","quasar","sun spot","exoplanets","parsec","pluto","earth","iss","sea of tranquility","io","ganymede","europa","titan","callisto","relativity","stephen hawking","hawking radiation","accretion disk","pulsar","white dwarf","brown dwarf","m class","sagittarius a","super nova","betelgeuse","orion","sirius","arcturus"];
+// initial object 
+var wordGame = {
+wins: 0,
+losses: 0,
+guesses: 0,
+spaceWords: ["moon","star","event horizon","graviton","black hole", "coronal mass ejection", "olympus mons", "nasa","spirit", "opportunity","edwin hubble","alpha centauri","neutron star","singularity","jpl","oumuamua","apollo","buzz aldrin","project starshot","space x","esa","yutu","seti","neil armstrong","challenger","oort cloud","large magellanic cloud","hubble deep field","mars","venus","jupiter","uranus","neptune","mercury","kuiper belt","neo","meteor","comet","kepler space telescope","quasar","sun spot","exoplanets","parsec","pluto","earth","iss","sea of tranquility","io","ganymede","europa","titan","callisto","relativity","stephen hawking","hawking radiation","accretion disk","pulsar","white dwarf","brown dwarf","m class","sagittarius a","super nova","betelgeuse","orion","sirius","arcturus"],
 
 //selects random word
    
-let randomSpaceWord = spaceWords[Math.floor(Math.random() * this.spaceWords.length)];
-  
-let s;
-let wins = 0;
-let loses = 0;
-let letterGuesses = [];
- 
-function gameStart() {
+randSpaceWord: function() {
+  return this.spaceWords[Math.floor(Math.random() * this.spaceWords.length)];
+},
 
-  for (var i = 0; i < randomSpaceWord.length; i++)
-  {
-    randomSpaceWord[i] = "_";
-  }
+// splits random word into array
+
+spaceWordArray: function () {
+        
 }
 
 
-
-
-
-
-
-
-
-
-//seperates selected word into array of its letters 
-
-    randWordArray: function() {
-      wordGame.randWord().split("");
-    },
-    
-    
-
-    //count the number of letters 
-
-    randWordLetter: function() {
-        randWordArray.length();
-    },
-
-    //display blank spaces equal to number of letters
-
-//display win and lose counter
-//display guess counter
-
-//track user key strokes and compare letters in choosen word to user choices 
-    //if user input matches chosen word's letters, display letter in appropriate blank 
-    //if user input doesn't match chosen word's letters, subtract one from guess counter. 
-
-//if all the letters in chosen word are selected, add one to win counter and restart. 
-//if all the guesses are used, add one to lose counter and restart. 
-
 }
-
-
-
-
 
