@@ -16,12 +16,20 @@ let wordGame = {
       return this.spaceWords[Math.floor(Math.random() * this.spaceWords.length)];
     },
 
-
     //seperates selected word into array of its letters 
+
+    randWordArray: function() {
+      wordGame.randWord().split("");
+    },
     
     
 
     //count the number of letters 
+
+    randWordLetter: function() {
+        randWordArray.length();
+    },
+
     //display blank spaces equal to number of letters
 
 //display win and lose counter
@@ -36,7 +44,7 @@ let wordGame = {
 
 }
 
-// var randWordArray = wordGame.randWord.split(" ");
 
 
-let secretWord = console.log(wordGame.randWord());
+
+
