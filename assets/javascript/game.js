@@ -1,4 +1,6 @@
 // needs to register key press to initiate program
+    //keyup function to start 
+    //have it update on keyup
 
 // initial object 
 var wordGame = {
@@ -18,15 +20,31 @@ randSpaceWord: function() {
 // splits chosen word into individual strings for each letter and space
 spaceWordArray: function () {
   
- lettersArray = this.randSpaceWord.split(""); //split method does not seem to work. What is the correct sytax for use in object?
+ lettersArray = Array.from(wordGame.randSpaceWord()); //split method does not seem to work. What is the correct sytax for use in object?
   
-// creates a blank for each letter and space in array
+// creates a blank for each letter and space in array?
 
   for (var i = 0; i < wordGame.randSpaceWord.length; i++) 
   {
     this.lettersArray[i] = "_";
   } 
 },
+
+// identfies and stores user keystrokes
+
+
+// compares user keystrokes with letters stored in lettersArray
+    // matches are displayed
+    // misses subtract one from guesses
+
+
+    // if guesses === 0, add one to losses and restart 
+
+
+
+// if all letters from lettersArray are chosen by user then add one to wins and restart
+
+
 
 }
 
