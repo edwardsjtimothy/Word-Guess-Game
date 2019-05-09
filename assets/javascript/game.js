@@ -9,7 +9,17 @@ losses: 0,
 guesses: 12,
 spaceWords: ["moon","star","event horizon","graviton","black hole", "coronal mass ejection", "olympus mons", "nasa","spirit", "opportunity","edwin hubble","alpha centauri","neutron star","singularity","jpl","oumuamua","apollo","buzz aldrin","project starshot","space x","esa","yutu","seti","neil armstrong","challenger","oort cloud","large magellanic cloud","hubble deep field","mars","venus","jupiter","uranus","neptune","mercury","kuiper belt","neo","meteor","comet","kepler space telescope","quasar","sun spot","exoplanets","parsec","pluto","earth","iss","sea of tranquility","io","ganymede","europa","titan","callisto","relativity","stephen hawking","hawking radiation","accretion disk","pulsar","white dwarf","brown dwarf","m class","sagittarius a","super nova","betelgeuse","orion","sirius","arcturus"],
 lettersArray: [],
-userKeys: [],
+blanksArray: [],
+match: false,
+userGuess: "",
+
+
+
+gameStart: function () { //why does it not run when key is initially pressed? 
+  wordGame.randSpaceWord();  
+  wordGame.spaceWordArray();
+  wordGame.blanks();
+},
 
 //selects random word
    
@@ -23,25 +33,46 @@ spaceWordArray: function () {
   
  lettersArray = Array.from(wordGame.randSpaceWord()); 
   
-    // creates a blank for each letter and space in array
-
-  for (var i = 0; i < wordGame.randSpaceWord.length; i++) 
-  {
-    this.lettersArray[i] = "_";
-  } 
 },
 
+//generates blanks for each letter in random word 
 
+blanks: function () {
+
+ for (var i = 0; i < wordGame.randSpaceWord.length; i++) 
+  {
+    blanksArray.push(this.lettersArray[i] = "_"); //why are dashes not pushing to blanksArray?
+  } 
+},
+ 
 // identfies and stores user keystrokes
 
-input: function (){
-  var keyLog = document.getElementById("keylog").value;
-  document.getElementById("keyCollector").innerHTML = keyLog;
+input: function () {
+ var userKeys = document.getElementById("keylog").value;
+  document.getElementById("keyCollector").innerHTML = userKeys; //how to make program track keystrokes without requiring an input field?
 },
 
 
 // compares user keystrokes with letters stored in lettersArray
-    // matches are displayed
+    
+guessCheck: function () {
+  wordGame.userGuess = document.getElementById("keylog").value;
+  wordGame.secretWord = document.getElementById("word");
+  for (var i = 0; i < wordGame.secretWord.length; i++) {
+    if (wordGame.userGuess == wordGame.secretWord[i].innerHTML) {
+      // display guessed letter
+    } else {
+      wordGame.guesses--;
+    }
+  } 
+    if (wordGame.guesses === 0) {
+      alert("You lose! Try again!")
+    }
+},
+
+
+
+// matches are displayed
     // misses subtract one from guesses
 
 
@@ -55,53 +86,41 @@ input: function (){
 }
 
 
-// calls function to generate random word 
 
-wordGame.randSpaceWord();  //why do words not generate when functions are called?
-wordGame.spaceWordArray();
+// calls functions to run game
+
+wordGame.gameStart();
 
 //wins counter
 
-var winsCounter = document.getElementById("wins") 
+var winsCounter = document.getElementById("wins"); 
   winsCounter.innerHTML = wordGame.wins; 
 
 // losses counter 
 
-var lossesCounter = document.getElementById("losses") 
+var lossesCounter = document.getElementById("losses"); 
   lossesCounter.innerHTML = wordGame.losses; 
 
 // guesses remaining counter
 
-var guessesCounter = document.getElementById("guesses") 
+var guessesCounter = document.getElementById("guesses"); 
   guessesCounter.innerHTML = wordGame.guesses; 
 
 
 //chosen word 
 
-var chosenWord = document.getElementById("word") 
-  chosenWord.innerHTML = wordGame.lettersArray;
+var chosenWord = document.getElementById("word"); 
+  chosenWord.innerHTML = this.lettersArray;
 
 
 
 
+// var blanksArray = new Array ();
 
-  // logs keypresses
+  // for (var i = 0; i < wordGame.randSpaceWord.length; i++) 
+  // {
+  // blanksArray.push(this.lettersArray[i] = "_");
+  // } 
 
-// function input(){
-//   var keyLog = document.getElementById("keylog").value;
-//   document.getElementById("keyCollector").innerHTML = keyLog;
-// }
-
-
-
-
-// var userGuesses = function() {
-//   function eventHandler(event) {
-//     console.log(event.type);
-//     console.log(event.keyCode);
-//     console.log(String.fromCharCode(event.keyCode));
-//   }
-// };
-
-// var textAreaElement = document.getElementById("keylog") [0];
-// textAreaElement.addEventListener("keyup",eventHandler,false);
+  // document.getElementById("blanks").innerHTML = blanksArray;
+ 
