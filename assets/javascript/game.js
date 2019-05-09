@@ -15,7 +15,7 @@ userGuess: "",
 
 
 
-gameStart: function () { //why does it not run when key is initially pressed? 
+gameStart: function () { //how do I call it onkeyup?
   wordGame.randSpaceWord();  
   wordGame.spaceWordArray();
   wordGame.blanks();
@@ -39,7 +39,7 @@ spaceWordArray: function () {
 
 blanks: function () {
 
- for (var i = 0; i < wordGame.randSpaceWord.length; i++) 
+ for (var i = 0; i < wordGame.spaceWordArray.length; i++)  //for each element in word array, push _ to blanks array 
   {
     blanksArray.push(this.lettersArray[i] = "_"); //why are dashes not pushing to blanksArray?
   } 
@@ -60,27 +60,18 @@ guessCheck: function () {
   wordGame.secretWord = document.getElementById("word");
   for (var i = 0; i < wordGame.secretWord.length; i++) {
     if (wordGame.userGuess == wordGame.secretWord[i].innerHTML) {
-      // display guessed letter
+      // display matched letter
     } else {
-      wordGame.guesses--;
+      wordGame.guesses--; // misses subtract one from guesses
     }
   } 
     if (wordGame.guesses === 0) {
-      alert("You lose! Try again!")
+      wordGame.losses++; //addes one to losses upon defeat
+      alert("You lose! Try again!"); //message upon defeat
+      wordGame.gameStart(); //restart 
     }
+  // if all letters from lettersArray are chosen by user then add one to wins and restart
 },
-
-
-
-// matches are displayed
-    // misses subtract one from guesses
-
-
-    // if guesses === 0, add one to losses and restart 
-
-
-
-// if all letters from lettersArray are chosen by user then add one to wins and restart
 
 
 }
@@ -88,39 +79,22 @@ guessCheck: function () {
 
 
 // calls functions to run game
-
+// document.onkeyup (wordGame.gameStart()); //doesn't work
 wordGame.gameStart();
 
 //wins counter
-
 var winsCounter = document.getElementById("wins"); 
   winsCounter.innerHTML = wordGame.wins; 
 
 // losses counter 
-
 var lossesCounter = document.getElementById("losses"); 
   lossesCounter.innerHTML = wordGame.losses; 
 
 // guesses remaining counter
-
 var guessesCounter = document.getElementById("guesses"); 
   guessesCounter.innerHTML = wordGame.guesses; 
 
-
 //chosen word 
-
 var chosenWord = document.getElementById("word"); 
-  chosenWord.innerHTML = this.lettersArray;
+  chosenWord.innerHTML = this.lettersArray; //should be blanksArray
 
-
-
-
-// var blanksArray = new Array ();
-
-  // for (var i = 0; i < wordGame.randSpaceWord.length; i++) 
-  // {
-  // blanksArray.push(this.lettersArray[i] = "_");
-  // } 
-
-  // document.getElementById("blanks").innerHTML = blanksArray;
- 
