@@ -1,6 +1,4 @@
-// needs to register key press to initiate program
-    //keyup function to start 
-    //have it update on keyup
+// spent too long trying to make this work. In retrospect, I should have switched to the basic assignment so I could have turned in something functional. Live and learn! Still, learned a lot trying to get it running so I feel ok about it. 
 
 // initial object 
 var wordGame = {
@@ -40,7 +38,12 @@ blanks: function () {
 
  for (var i = 0; i < wordGame.spaceWordArray.length; i++)  //for each element in word array, push _ to blanks array 
   {
-    blanksArray.push(this.lettersArray[i] = "_"); //why are dashes not pushing to blanksArray?
+    blanksArray.push(this.lettersArray[i] = "_"); // i know this won't work because the equals operator is for assignment which doesn't make sense in this context.
+    
+    //also tried this 
+    // blanksArray.push(this.lettersArray[i].replace(lettersArray, "_"));
+    // but it breaks random word generation but does not generate errors in console. 
+    //why are dashes not pushing to blanksArray?
   } 
 },
  
@@ -49,7 +52,7 @@ blanks: function () {
 input: function () {
      
    var userKeys = document.getElementById("keylog").value;
-  document.getElementById("keyCollector").innerHTML = userKeys; //how to make program track keystrokes without requiring an input field? Tried variations of document.onkeyup to no avail. 
+  document.getElementById("keyCollector").innerHTML = userKeys; // put this line in so I could see if my inputs were going anywhere. I was unable to track keystrokes without requiring an input field. Tried variations of document.onkeyup to no avail. 
 },
 
 
@@ -72,14 +75,13 @@ guessCheck: function () {
     }
   // if all letters from lettersArray are chosen by user then add one to wins and restart
 },
-
-
 }
 
 
 
 // calls functions to run game
-// document.onkeyup(wordGame.gameStart()); doesn't work
+// document.onkeyup(wordGame.gameStart()); doesn't work :(
+// refresh page to generate new word
 wordGame.gameStart();
 
 //wins counter
@@ -96,5 +98,5 @@ var guessesCounter = document.getElementById("guesses");
 
 //chosen word 
 var chosenWord = document.getElementById("word"); 
-  chosenWord.innerHTML = this.lettersArray; //should be blanksArray
+  chosenWord.innerHTML = this.lettersArray; //should be blanksArray but does seem to push. will return undefined.
 
