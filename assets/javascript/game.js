@@ -11,11 +11,11 @@ spaceWords: ["moon","star","event horizon","graviton","black hole", "coronal mas
 lettersArray: [],
 blanksArray: [],
 match: false,
-userGuess: "",
+userGuess: [],
 
 
 
-gameStart: function () { //how do I call it onkeyup?
+gameStart: function () { //how do I call it onkeyup? tried document.onkeyup(wordGame.gameStart()); doesn't work
   wordGame.randSpaceWord();  
   wordGame.spaceWordArray();
   wordGame.blanks();
@@ -32,7 +32,6 @@ randSpaceWord: function() {
 spaceWordArray: function () {
   
  lettersArray = Array.from(wordGame.randSpaceWord()); 
-  
 },
 
 //generates blanks for each letter in random word 
@@ -45,22 +44,23 @@ blanks: function () {
   } 
 },
  
-// identfies and stores user keystrokes
+// identfies and stores user keystrokes 
 
 input: function () {
- var userKeys = document.getElementById("keylog").value;
-  document.getElementById("keyCollector").innerHTML = userKeys; //how to make program track keystrokes without requiring an input field?
+     
+   var userKeys = document.getElementById("keylog").value;
+  document.getElementById("keyCollector").innerHTML = userKeys; //how to make program track keystrokes without requiring an input field? Tried variations of document.onkeyup to no avail. 
 },
 
 
 // compares user keystrokes with letters stored in lettersArray
     
 guessCheck: function () {
-  wordGame.userGuess = document.getElementById("keylog").value;
+  // wordGame.userGuess = document.getElementById("keylog").value;
   wordGame.secretWord = document.getElementById("word");
   for (var i = 0; i < wordGame.secretWord.length; i++) {
-    if (wordGame.userGuess == wordGame.secretWord[i].innerHTML) {
-      // display matched letter
+    if (wordGame.userKeys == wordGame.secretWord[i].innerHTML) {
+      // display matched letter. I have been unable to figure out how to make matches display. 
     } else {
       wordGame.guesses--; // misses subtract one from guesses
     }
@@ -79,7 +79,7 @@ guessCheck: function () {
 
 
 // calls functions to run game
-// document.onkeyup (wordGame.gameStart()); //doesn't work
+// document.onkeyup(wordGame.gameStart()); doesn't work
 wordGame.gameStart();
 
 //wins counter

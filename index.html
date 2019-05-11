@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>Spaaace Woooords</title>
@@ -10,21 +11,32 @@
 
 <body>
 
-<h1>Spaaace Wooords</h1>
+  <h1>Spaaace Wooords</h1>
 
-<h2>Press any key to get started!</h2>
+  <h2>Press any key to get started!</h2>
 
+  <div class="scoreboard">
+    <h3>Wins</h3>
+    <div id="wins"></div>
+  </div>
+  <div class="scoreboard">
+    <h3>Losses</h3>
+    <div id="losses"></div>
+  </div>
+  <div class="scoreboard">
+    <h3>Guesses</h3>
+    <div id="guesses"></div>
+  </div>
+  <div class="secretword">
+    <div id="word"></div>
+  </div>
 
-<div id="wins"></div>
-<div id="losses"></div>
-<div id="guesses"></div>
-<div id="word"></div>
+  <input type="text" onkeyup="wordGame.input()" id="keylog" autofocus="autofocus">
 
-<input type="text" onkeyup="wordGame.input()" id="keylog">
+  <p id="blanks"></p>
+  <p id="keyCollector"></p>
 
-<p id="blanks"></p>
-<p id="keyCollector"></p>
-
-<script src="assets\javascript\game.js"></script>
+  <script src="assets\javascript\game.js"></script>
 </body>
-</html> 
+
+</html>
