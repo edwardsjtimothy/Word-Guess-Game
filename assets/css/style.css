@@ -1,6 +1,8 @@
 body {
     background-color:black;
     color: white;
+    font-family: 'Space Mono', monospace;
+    overflow: hidden;
 }
 
 
@@ -37,4 +39,11 @@ h2 {
     position: absolute;
     top: 350px;
     left: 310px;
+}
+
+p {
+    font-size: 2em;
+    position: absolute;
+    left: 330px;
+    bottom: 300px;
 }

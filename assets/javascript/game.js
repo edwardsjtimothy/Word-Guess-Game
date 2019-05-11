@@ -47,12 +47,12 @@ blanks: function () {
   } 
 },
  
-// identfies and stores user keystrokes 
+// displays list of user key strokes. Stores user keystrokes in variable.
 
 input: function () {
      
    var userKeys = document.getElementById("keylog").value;
-  document.getElementById("keyCollector").innerHTML = userKeys; // put this line in so I could see if my inputs were going anywhere. I was unable to track keystrokes without requiring an input field. Tried variations of document.onkeyup to no avail. 
+  document.getElementById("keyCollector").innerHTML = userKeys; // I was unable to track keystrokes without requiring an input field. Tried variations of document.onkeyup to no avail. 
 },
 
 
