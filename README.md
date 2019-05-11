@@ -1,1 +1,2 @@
 # Word-Guess-Game
+This my first attempt at building a functional program in javascript. While I have been unable to make the game work within the time frame provided for the assignment, the excersize has provided a valuable first step and I hope to keep working on it as I continue to learn. 

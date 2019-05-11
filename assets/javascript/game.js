@@ -77,12 +77,11 @@ guessCheck: function () {
 },
 }
 
-
-
 // calls functions to run game
 // document.onkeyup(wordGame.gameStart()); doesn't work :(
 // refresh page to generate new word
 wordGame.gameStart();
+
 
 //wins counter
 var winsCounter = document.getElementById("wins"); 
@@ -99,4 +98,3 @@ var guessesCounter = document.getElementById("guesses");
 //chosen word 
 var chosenWord = document.getElementById("word"); 
   chosenWord.innerHTML = this.lettersArray; //should be blanksArray but does seem to push. will return undefined.
-
