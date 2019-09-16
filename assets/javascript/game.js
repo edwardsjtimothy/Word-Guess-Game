@@ -22,14 +22,15 @@ gameStart: function () { //how do I call it onkeyup? tried document.onkeyup(word
 //selects random word
    
 randSpaceWord: function() {
-  return this.spaceWords[Math.floor(Math.random() * this.spaceWords.length)];
+  let arrPos = Math.floor(Math.random() * this.spaceWords.length);
+  return this.spaceWords[arrPos];
 },
 
 // splits chosen word into individual strings for each letter and space
 
 spaceWordArray: function () {
   
- lettersArray = Array.from(wordGame.randSpaceWord()); 
+lettersArray = Array.from(wordGame.randSpaceWord()); 
 },
 
 //generates blanks for each letter in random word 
@@ -84,17 +85,17 @@ wordGame.gameStart();
 
 
 //wins counter
-var winsCounter = document.getElementById("wins"); 
+const winsCounter = document.getElementById("wins"); 
   winsCounter.innerHTML = wordGame.wins; 
 
 // losses counter 
-var lossesCounter = document.getElementById("losses"); 
+const lossesCounter = document.getElementById("losses"); 
   lossesCounter.innerHTML = wordGame.losses; 
 
 // guesses remaining counter
-var guessesCounter = document.getElementById("guesses"); 
+const guessesCounter = document.getElementById("guesses"); 
   guessesCounter.innerHTML = wordGame.guesses; 
 
 //chosen word 
-var chosenWord = document.getElementById("word"); 
+const chosenWord = document.getElementById("word"); 
   chosenWord.innerHTML = this.lettersArray; //should be blanksArray but does seem to push. will return undefined.
