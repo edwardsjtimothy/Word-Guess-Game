@@ -47,3 +47,12 @@ p {
     left: 330px;
     bottom: 300px;
 }
+
+.box{
+    height: 10vh;
+    width: 50vw;
+    border: dotted white 2px;
+    position: absolute;
+    top: 450px;
+    left: 300px;
+}
