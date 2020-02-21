@@ -6,7 +6,7 @@ const spaceWords = ["moon","star","event horizon","graviton","black hole", "coro
 const lettersArray = [];
 const blanksArray = [];
 const match = false;
-const userGuess = [];
+const userGuess = null;
 
 //wins counter
 document.getElementById("wins").innerHTML = wins;
@@ -18,51 +18,44 @@ document.getElementById("losses").innerHTML = losses;
 document.getElementById("guesses").innerHTML = guesses;
 
 //chosen word 
-document.getElementById("word").innerHTML = ; //should be blanksArray but does seem to push. will return undefined.
+ //should be blanksArray but does seem to push. will return undefined.
+ 
 
+ document.onkeyup =(e)=> {
+   
+  if (e.keyCode >= 49 && e.keyCode <= 90) {
+    userGuessed = e.key.toLowerCase();
+    // Pass the guessed letter into our updatePage function to run the game logic.
+    wordGuessGame.updatePage(wordGuessGame.letterGuessed);
+  }
 
-gameStart =()=> {//how do I call it onkeyup? tried document.onkeyup(wordGame.gameStart()); doesn't work
-  wordGame.randSpaceWord();  
-  wordGame.spaceWordArray();
-  wordGame.blanks();
 }
 
-//selects random word
+gameStart =()=> {//how do I call it onkeyup? tried document.onkeyup(wordGame.gameStart()); doesn't work
+  randSpaceWord();  
+  spaceWordArray();
+  blanks();
+}
+
+//selects random word and splits chosen word into individual strings for each letter and space
    
 randSpaceWord =()=> {
-  let arrPos = Math.floor(Math.random() * this.spaceWords.length);
-  return this.spaceWords[arrPos];
-},
-
-// splits chosen word into individual strings for each letter and space
-
-spaceWordArray =()=> {
-lettersArray = Array.from(wordGame.randSpaceWord()); 
+  let arrPos = Math.floor(Math.random() * spaceWords.length);
+  let secretWord = spaceWords[arrPos];
+  lettersArray = Array.from(secretWord); 
 },
 
 //generates blanks for each letter in random word 
 
 blanks =()=> {
 
- for (var i = 0; i < wordGame.spaceWordArray.length; i++)  //for each element in word array, push _ to blanks array 
+ for (var i = 0; i < lettersArray.length; i++)  //for each element in word array, push _ to blanks array 
   {
     blanksArray.push(this.lettersArray[i] = "_"); // i know this won't work because the equals operator is for assignment which doesn't make sense in this context.
-    
-    //also tried this 
-    // blanksArray.push(this.lettersArray[i].replace(lettersArray, "_"));
-    // but it breaks random word generation but does not generate errors in console. 
-    //why are dashes not pushing to blanksArray?
+    document.getElementById("word").innerHTML = blanksArray;
   } 
 },
  
-// displays list of user key strokes. Stores user keystrokes in variable.
-
-input =()=> {
-   var userKeys = e.key
-  document.getElementById("keyCollector").innerHTML = userKeys; // I was unable to track keystrokes without requiring an input field. Tried variations of document.onkeyup to no avail. 
-},
-
-
 // compares user keystrokes with letters stored in lettersArray
     
 guessCheck =()=> {
@@ -87,6 +80,6 @@ guessCheck =()=> {
 // calls functions to run game
 // document.onkeyup(wordGame.gameStart()); doesn't work :(
 // refresh page to generate new word
-wordGame.gameStart();
+gameStart();
 
 

@@ -36,16 +36,11 @@ h2 {
     font-size: 2em;
     display: block; 
     text-align: center;
-    position: absolute;
-    top: 350px;
-    left: 310px;
+    position: relative;
 }
 
 p {
     font-size: 2em;
-    position: absolute;
-    left: 330px;
-    bottom: 300px;
 }
 
 .box{
